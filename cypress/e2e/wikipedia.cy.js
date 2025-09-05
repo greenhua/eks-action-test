@@ -1,17 +1,17 @@
 describe('Wikipedia.org тесты', () => {
-  it('Главная страница открывается', () => {
+  it('First page is openning', () => {
     cy.visit('/');
     cy.contains('The Free Encyclopedia').should('be.visible');
   });
 
-  it('Есть поиск и он работает', () => {
+  it('Search exist and working', () => {
     cy.visit('/');
     cy.get('input[name=search]').type('Cypress.io{enter}');
     cy.url().should('include', 'Cypress.io');
     cy.contains('Cypress').should('be.visible');
   });
 
-  it('Ссылка на English Wikipedia ведёт на правильную страницу', () => {
+  it('link to English Wikipedia is correct', () => {
     cy.visit('/');
     cy.get('#js-link-box-en').click();
     cy.url().should('include', 'en.wikipedia.org');

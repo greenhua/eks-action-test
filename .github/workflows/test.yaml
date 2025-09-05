@@ -1,0 +1,8 @@
+name: TEST-CI
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: [ram16cpu4-runner]
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Running on EKS!"

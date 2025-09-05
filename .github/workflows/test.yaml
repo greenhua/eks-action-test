@@ -5,5 +5,5 @@ jobs:
     runs-on: [ram16cpu4-runner]
     steps:
       - uses: actions/checkout@v3
-      - docker build .
+      - run: docker build .
       - run: echo "Running on EKS!"

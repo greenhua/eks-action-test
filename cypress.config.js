@@ -6,7 +6,8 @@ module.exports = defineConfig({
     reportDir: "cypress/reports",
     overwrite: false,
     html: false,
-    json: true
+    json: true,
+    timestamp: "mmddyyyy_HHMMss"
   },
   e2e: {
     setupNodeEvents(on, config) {
@@ -15,5 +16,10 @@ module.exports = defineConfig({
     },
     baseUrl: "https://wikipedia.org",
     supportFile: false,
+    specPattern: "cypress/e2e/**/*.cy.{js,jsx,ts,tsx}",
+    video: false,
+    screenshotOnRunFailure: true,
+    viewportWidth: 1280,
+    viewportHeight: 720
   },
 });

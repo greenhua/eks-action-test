@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+echo "----------------------------------"
 set -x
 echo "Starting Cypress tests..."
 

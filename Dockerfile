@@ -16,5 +16,5 @@ COPY cypress ./cypress
 
 RUN npx cypress verify
 RUN mkdir -p cypress/reports
-
+RUN echo "-----------------------"
 CMD ["./run-tests.sh"]

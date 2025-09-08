@@ -39,7 +39,7 @@ if (reportFiles.length === 0) {
 
 console.log("Found report files:", reportFiles);
 
-// Отправка launch и items в ReportPortal
+// Загрузка отчёта в ReportPortal
 async function uploadReport(filePath) {
   console.log("Uploading:", filePath);
   const report = JSON.parse(fs.readFileSync(filePath));
@@ -55,7 +55,7 @@ async function uploadReport(filePath) {
       { headers }
     );
 
-    const launchUuid = launchResp.data.uuid;
+    const launchUuid = launchResp.data.uuid; // правильный launchUuid для items
 
     // 2️⃣ Создаём suites
     for (const suite of report.results[0].suites) {
@@ -104,7 +104,7 @@ async function uploadReport(filePath) {
   }
 }
 
-// Загрузка всех файлов
+// Загружаем все файлы
 (async () => {
   for (const file of reportFiles) {
     await uploadReport(file);

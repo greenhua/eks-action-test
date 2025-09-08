@@ -20,7 +20,7 @@ function findJsonFiles(dir) {
   list.forEach(file => {
     const filePath = path.join(dir, file);
     const stat = fs.statSync(filePath);
-    if (stat && stat.isDirectory()) {
+    if (stat.isDirectory()) {
       results = results.concat(findJsonFiles(filePath));
     } else if (file.endsWith(".json")) {
       results.push(filePath);
@@ -39,7 +39,6 @@ if (reportFiles.length === 0) {
 
 console.log("Found report files:", reportFiles);
 
-// Загрузка отчёта в ReportPortal
 async function uploadReport(filePath) {
   console.log("Uploading:", filePath);
   const report = JSON.parse(fs.readFileSync(filePath));
@@ -55,9 +54,17 @@ async function uploadReport(filePath) {
       { headers }
     );
 
-    const launchUuid = launchResp.data.uuid; // правильный launchUuid для items
+    const launchId = launchResp.data.id;
 
-    // 2️⃣ Создаём suites
+    // 2️⃣ Получаем корректный launchUuid
+    const launchData = await axios.get(
+      `${RP_ENDPOINT}/api/v1/${RP_PROJECT}/launch/${launchId}`,
+      { headers }
+    );
+
+    const launchUuid = launchData.data.uuid;
+
+    // 3️⃣ Создаём suites
     for (const suite of report.results[0].suites) {
       const suiteResp = await axios.post(
         `${RP_ENDPOINT}/api/v1/${RP_PROJECT}/item`,
@@ -73,7 +80,7 @@ async function uploadReport(filePath) {
 
       const suiteUuid = suiteResp.data.uuid;
 
-      // 3️⃣ Создаём тесты внутри suite
+      // 4️⃣ Создаём тесты внутри suite
       for (const test of suite.tests) {
         await axios.post(
           `${RP_ENDPOINT}/api/v1/${RP_PROJECT}/item`,
@@ -90,7 +97,7 @@ async function uploadReport(filePath) {
       }
     }
 
-    // 4️⃣ Завершаем launch
+    // 5️⃣ Завершаем launch
     await axios.put(
       `${RP_ENDPOINT}/api/v1/${RP_PROJECT}/launch/${launchUuid}/finish`,
       { endTime: new Date().toISOString() },

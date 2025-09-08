@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const axios = require("axios");
 
-const RP_ENDPOINT = 'https://rp.bfx.elegenbio.com/';
+const RP_ENDPOINT = 'https://rp.bfx.elegenbio.com/api/v1';
 const RP_PROJECT = 'eks-test';
 const RP_TOKEN = 'test_Plt1eiRYSJCS1MHQ0bnEQCYOXFrnxz1N7-iRLWI80My2gmckt8fSJy8P_BfS4tFJ';
 

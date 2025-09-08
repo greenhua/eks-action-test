@@ -10,4 +10,6 @@ RUN npm install --save-dev @reportportal/agent-js-cypress
 COPY cypress.config.js ./
 COPY cypress ./cypress
 
-CMD ["npx", "cypress", "run"]
+COPY reportportal-upload.js ./
+
+CMD npx cypress run --reporter mochawesome && node reportportal-upload.js

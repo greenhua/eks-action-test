@@ -50,7 +50,7 @@ async function uploadReport(filePath) {
         name: path.basename(filePath),
         startTime: new Date().toISOString()
       },
-      { headers: { Authorization: RP_TOKEN } }
+      { headers: { Authorization: `Bearer ${RP_TOKEN}` } }  
     );
 
     const launchId = launchResp.data.id;

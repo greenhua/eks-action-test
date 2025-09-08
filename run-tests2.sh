@@ -8,3 +8,4 @@ echo "Uploading to ReportPortal..."
 npm run upload-rp
 
 echo "All tasks completed successfully!"
+find ./cypress

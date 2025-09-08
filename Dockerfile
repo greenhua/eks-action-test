@@ -12,4 +12,4 @@ COPY cypress ./cypress
 
 COPY reportportal-upload.js ./
 
-CMD npx cypress run --reporter mochawesome && node reportportal-upload.js
+CMD npm run test && npm run upload-rp

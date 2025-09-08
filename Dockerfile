@@ -18,4 +18,4 @@ RUN npx cypress verify
 RUN mkdir -p cypress/reports
 RUN echo "-----------------------"
 RUN cat run-tests2.sh
-CMD ["./run-tests2.sh"]
+# CMD ["./run-tests2.sh"]

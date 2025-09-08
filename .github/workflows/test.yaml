@@ -6,5 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker build -t cypress-tests .
-      - run: docker run --rm ./run-tests.sh
+      - run: docker run --rm run-tests.sh
       - run: echo "Running on EKS!"

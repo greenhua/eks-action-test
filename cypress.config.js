@@ -13,7 +13,7 @@ module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
       reportportal(on, config, {
-        token: 'test01_n-Y5rdGESZe1qIgv2lIiZqad9-N_8_uxE8E32D3fbiptV-pHdnyNhdFbHWp0MmeN/,
+        token: 'test_TK071VfkSwCGN0wgZKt_vs43JUd3oxdyAu2J3JAaaL_ZGcYFygAG-cC-GvRq7TGC',
         endpoint: process.env.https://rp.bfx.elegenbio.com/,
         launch: 'Cypress Tests',
         project: 'eks-test',

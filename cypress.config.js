@@ -1,27 +1,15 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  reporter: "mochawesome",
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: false,
+    html: false,
+    json: true
+  },
   e2e: {
     baseUrl: "https://wikipedia.org",
     supportFile: false
   }
 });
-
-const reportPortal = require('@reportportal/agent-js-cypress');
-
-module.exports = {
-  e2e: {
-    setupNodeEvents(on, config) {
-      reportPortal(on, config, {
-        token: 'test_TK071VfkSwCGN0wgZKt_vs43JUd3oxdyAu2J3JAaaL_ZGcYFygAG-cC-GvRq7TGC',
-        endpoint: 'https://rp.bfx.elegenbio.com/',
-        launch: 'Cypress Tests',
-        project: 'eks-test',
-        description: 'TSEST wikipedia.org'
-      });
-      return config;
-    },
-    baseUrl: 'https://wikipedia.org',
-    supportFile: false
-  }
-};

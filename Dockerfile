@@ -4,6 +4,8 @@ WORKDIR /e2e
 
 COPY package*.json ./
 RUN npm install
+RUN npm install --save-dev reportportal-agent-js-cypress
+
 
 COPY cypress.config.js ./
 COPY cypress ./cypress

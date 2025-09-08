@@ -4,7 +4,7 @@ const axios = require("axios");
 
 const RP_ENDPOINT = 'https://rp.bfx.elegenbio.com/api/v1';
 const RP_PROJECT = 'eks-test';
-const RP_TOKEN = 'test_Plt1eiRYSJCS1MHQ0bnEQCYOXFrnxz1N7-iRLWI80My2gmckt8fSJy8P_BfS4tFJ';
+const RP_TOKEN = '123_xnlAHqX5TnS5mSvXICcUDCHnRp6LuDdwyX_RpLzygIcimAUxfvqel_52sCQjg0yR';
 
 if (!RP_ENDPOINT || !RP_PROJECT || !RP_TOKEN) {
   console.error("Set RP_ENDPOINT, RP_PROJECT and RP_TOKEN environment variables");

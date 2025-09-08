@@ -7,15 +7,15 @@ RUN npm install
 
 COPY cypress.config.js ./
 COPY reportportal-upload.js ./
-COPY run-tests.sh ./
+COPY run-tests2.sh ./
 
 # Делаем скрипт исполняемым
-RUN chmod +x run-tests.sh
+RUN chmod +x run-tests2.sh
 
 COPY cypress ./cypress
 
 RUN npx cypress verify
 RUN mkdir -p cypress/reports
 RUN echo "-----------------------"
-RUN cat run-tests.sh
-CMD ["./run-tests.sh"]
+RUN cat run-tests2.sh
+CMD ["./run-tests2.sh"]

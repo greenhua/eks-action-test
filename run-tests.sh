@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e
-
+set -x
 echo "Starting Cypress tests..."
+
 npm run test
 
 echo "Uploading to ReportPortal..."

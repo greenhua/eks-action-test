@@ -2,11 +2,11 @@ FROM cypress/included:13.13.0
 
 WORKDIR /e2e
 
-# Копируем package.json и package-lock.json (если есть)
+# Копируем package.json
 COPY package*.json ./
 
-# Устанавливаем все зависимости за один раз
-RUN npm ci --only=dev
+# Используем npm install вместо npm ci, так как нет package-lock.json
+RUN npm install
 
 # Копируем файлы конфигурации
 COPY cypress.config.js ./

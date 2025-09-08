@@ -2,7 +2,9 @@
   "name": "cypress-tests",
   "version": "1.0.0",
   "scripts": {
-    "test": "cypress run",
+    "test": "cypress run --reporter cypress-mochawesome-reporter",
+    "test:headed": "cypress run --headed",
+    "open": "cypress open",
     "upload-rp": "node reportportal-upload.js"
   },
   "devDependencies": {

@@ -7,7 +7,7 @@ module.exports = defineConfig({
   }
 });
 
-const reportportal = require('reportportal-agent-js-cypress');
+const reportPortal = require('@reportportal/agent-js-cypress');
 
 module.exports = {
   e2e: {

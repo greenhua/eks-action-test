@@ -6,7 +6,7 @@ const axios = require('axios');
 // Конфигурация ReportPortal
 const RP_CONFIG = {
   endpoint: process.env.RP_ENDPOINT || 'https://rp.bfx.elegenbio.com/',
-  token: process.env.RP_TOKEN || test_Plt1eiRYSJCS1MHQ0bnEQCYOXFrnxz1N7-iRLWI80My2gmckt8fSJy8P_BfS4tFJ',
+  token: process.env.RP_TOKEN || 'test_Plt1eiRYSJCS1MHQ0bnEQCYOXFrnxz1N7-iRLWI80My2gmckt8fSJy8P_BfS4tFJ',
   project: process.env.RP_PROJECT || 'eks-test',
   launch: process.env.RP_LAUNCH || 'cypress-tests'
 };
